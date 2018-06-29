@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['src\\main.py'],
-             pathex=['E:\\workspace\\myspider\\src'],
+             pathex=['C:\\work\\myspider\\src'],
              binaries=[],
              datas=[],
              hiddenimports=[],
@@ -21,7 +21,7 @@ exe = EXE(pyz,
           a.binaries,
           a.zipfiles,
           a.datas,
-          name='MyTool',
+          name='MySpider',
           debug=False,
           strip=False,
           upx=True,

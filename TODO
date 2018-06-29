@@ -1,0 +1,2 @@
+release_mac.spec/release_win.spec: pathex, name
+src/main.py: logger.LOG_FILE

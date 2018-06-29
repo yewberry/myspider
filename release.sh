@@ -1,0 +1,1 @@
+./venv/bin/pyinstaller --upx-dir=/usr/local/bin/ release_mac.spec

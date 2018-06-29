@@ -1,0 +1,8 @@
+.DS_Store
+vpip
+venv
+__pycache__
+*.log
+.vscode/.ropeproject
+build
+dist

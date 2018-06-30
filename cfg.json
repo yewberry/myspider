@@ -1,9 +1,9 @@
 {
     "database": {
         "dbaddr": "localhost",
-        "dbname": "data.db",
+        "dbname": "dozer",
         "dbpass": "111111",
-        "dbtype": "sqlite",
+        "dbtype": "mysql",
         "dbuser": "dozer"
     },
     "ippool": {

@@ -23,9 +23,7 @@ class Database():
 	}
 	DB_SQL = {
 		'ippool_all': 'SELECT * FROM ippool ORDER BY speed ASC'
-		, 'ippool_count': 'SELECT count(*) AS c FROM ippool'
-		, 'ippool_count_succ': 'SELECT count(*) AS c FROM ippool WHERE valid != 0'
-		, 'ippool_count_fail': 'SELECT count(*) AS c FROM ippool WHERE valid == 0'
+		, 'ippool_count': 'SELECT count(*) as c, sum(case when valid=1 then 1 else 0 end) as s, sum(case when valid=0 then 1 else 0 end) as f FROM ippool'
 		, 'ippool_exist': 'SELECT count(*) AS c FROM ippool WHERE ip=:ip AND port=:port'
 		, 'ippool_insert': 'INSERT INTO ippool (ip, port, country, city, speed, conn_type) VALUES(:ip, :port, :country, :city, :speed, :conn_type)'
 		, 'ippool_update': 'UPDATE ippool SET country=:country, city=:city, speed=:speed, conn_type=:conn_type WHERE ip=:ip AND port=:port'

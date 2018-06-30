@@ -20,8 +20,8 @@ class App(wx.App):
 			'database': {
 				'dbtype': 'sqlite',
 				'dbname': 'data.db',
-				'dbuser': 'dozer',
-				'dbpass': '111111',
+				'dbuser': '',
+				'dbpass': '',
 				'dbaddr': 'localhost',
 			},
 			'ippool': {

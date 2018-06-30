@@ -12,6 +12,7 @@ import zw.logger as logger
 
 LOG = logger.getLogger(__name__)
 SIG_TASK_RESULT = signal('task_result')
+SIG_REFRESH = signal('refresh')
 
 class TaskPanel(wx.Panel):
 	def __init__(self, parent):
@@ -56,7 +57,7 @@ class TaskPanel(wx.Panel):
 	def update_status(self, dat):
 		result = dat['result']
 		rec = dat['rec']
-		rec[4] = 100 if result else 0 # set valid field
+		rec[4] = 1 if result else 0 # set valid field
 		self.update_record(rec)
 		self.model.update_row(rec)
 
@@ -71,9 +72,11 @@ class TaskPanel(wx.Panel):
 			r = requests.get('http://www.baidu.com', proxies=proxies, timeout=5)
 		except:
 			SIG_TASK_RESULT.send({'rec': rec, 'result': False})
+			SIG_REFRESH.send(self)
 			return
 		result = True if r.status_code == 200 else False
 		SIG_TASK_RESULT.send({'rec': rec, 'result': result})
+		SIG_REFRESH.send(self)
 
 	def start_worker(self):
 		self.load_data()
@@ -135,7 +138,7 @@ class TaskListModel(dv.DataViewIndexListModel):
 
 	def update_row(self, rec):
 		idx = rec[0]
-		self.data[idx][4] = rec[4]
+		self.data[idx][4] = rec[4]*100
 		self.RowChanged(idx)
 
 class TaskWorkerThread(threading.Thread):

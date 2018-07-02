@@ -47,9 +47,12 @@ class PoolPanel(wx.Panel):
 	def load_data(self):
 		db = Database()
 		r = db.query('ippool_count')[0]
-		self.led_total.SetValue(str(r.c))
-		self.led_succ.SetValue(str(r.s))
-		self.led_fail.SetValue(str(r.f))
+		c = r.c if r.c is not None else 0
+		s = r.s if r.s is not None else 0
+		f = r.f if r.f is not None else 0
+		self.led_total.SetValue(str(c))
+		self.led_succ.SetValue(str(s))
+		self.led_fail.SetValue(str(f))
 	
 	def bind_event(self):
 		SIG_REFRESH.connect(self.refresh)

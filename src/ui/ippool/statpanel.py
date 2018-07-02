@@ -10,7 +10,7 @@ class StatPanel(wx.Panel):
 		wx.Panel.__init__(self, parent, -1)
 		self.init_ui()
 		self.load_data()
-		self.bind_event()
+		self.bind_events()
 	
 	def init_ui(self):
 		self.dvc = dvc = dv.DataViewCtrl(self,
@@ -43,7 +43,7 @@ class StatPanel(wx.Panel):
 		# Tel the DVC to use the model
 		self.dvc.AssociateModel(self.model)
 	
-	def bind_event(self):
+	def bind_events(self):
 		sig_refresh = signal('refresh')
 		sig_refresh.connect(self.refresh)
 

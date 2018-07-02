@@ -12,5 +12,8 @@
             "http://www.xicidaili.com/nn/"
         ]
     },
+    "zhihu": {
+        "curidx": 0
+    }
     "version": "1.0.0"
 }

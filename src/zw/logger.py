@@ -30,6 +30,9 @@ def getLogger(name=__name__):
 			'simple': {
 				'format': '%(asctime)s [%(levelname)s] %(name)s: %(message)s'
 			},
+			'short':{
+				'format': '%(asctime)s %(message)s'
+			},
 		},
 		'handlers': {
 			'console': {
@@ -48,7 +51,7 @@ def getLogger(name=__name__):
 			},
 			'eventmsg': {
 				'class': 'zw.logger.MyEventHandler',
-				'formatter': 'simple',
+				'formatter': 'short',
 				'level': logging.DEBUG,
 			}
 		},

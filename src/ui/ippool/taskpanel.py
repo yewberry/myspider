@@ -142,7 +142,7 @@ class TaskListModel(dv.DataViewIndexListModel):
 		self.RowChanged(idx)
 
 class TaskWorkerThread(threading.Thread):
-	def __init__(self, dat, proc_func, interval=3, pool_size=8):
+	def __init__(self, dat, proc_func, interval=3, pool_size=3):
 		super(TaskWorkerThread, self).__init__()
 		self.dat = dat
 		self.proc_func = proc_func

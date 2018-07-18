@@ -8,3 +8,4 @@ records
 PyMySQL
 beautifulsoup4
 blinker
+pyshp
